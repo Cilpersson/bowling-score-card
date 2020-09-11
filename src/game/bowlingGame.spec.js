@@ -1,9 +1,9 @@
 import { BowlingGame } from "./bowlingGame";
 
 // 'RED - GREEN - REFACTOR' seems like the way to go both in the java-video I watched and the
-// javascript video I'm currently watching.
+// javascript-video.
 
-// I'm not completely confident in how to write the describe("") and it("") part of the test,
+// I'm not very confident in how to write the describe("") and it("") part of the test,
 // if I have understood it correctly the describe part should be understood by a non-
 // developer and the it-section shoud be a more coding technichal description?
 

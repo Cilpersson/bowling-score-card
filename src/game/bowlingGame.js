@@ -14,16 +14,44 @@ export class BowlingGame {
       const frameScore =
         this.listOfRolls[currentRollIndex] +
         this.listOfRolls[currentRollIndex + 1];
-      if (frameScore === 10) {
-        // frameScore === 10 means spare!
+
+      if (this.isStrike(currentRollIndex)) {
+        score += this.pointsForStrike(currentRollIndex);
+        // Adding 1 because of strike and values from the entire frame has not been used
+        currentRollIndex++;
+      } else if (this.isSpare(frameScore)) {
         // Spare points are frameScore + next frames first roll
-        score = frameScore + this.listOfRolls[currentRollIndex + 2];
+        score += this.pointsForSpare(currentRollIndex);
+        // Adding 2 because the score for the entire frame has been calculated
+        currentRollIndex += 2;
       } else {
         score += frameScore;
+        // Adding 2 because the score for the entire frame has been calculated
+        currentRollIndex += 2;
       }
-      // Adding 2 because the score for the entire frame has been calculated
-      currentRollIndex += 2;
     }
     return score;
+  }
+
+  isStrike(currentRollIndex) {
+    return this.listOfRolls[currentRollIndex] === 10;
+  }
+
+  pointsForStrike(currentRollIndex) {
+    // The total points for a strike is 10 plus the value of the two next rolled balls.
+    return (
+      10 +
+      this.listOfRolls[currentRollIndex + 1] +
+      this.listOfRolls[currentRollIndex + 2]
+    );
+  }
+
+  isSpare(frameScore) {
+    return frameScore === 10;
+  }
+
+  pointsForSpare(currentRollIndex) {
+    // The total points for a spare is 10 plus the value of the next rolled ball.
+    return 10 + this.listOfRolls[currentRollIndex + 2];
   }
 }
