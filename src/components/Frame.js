@@ -6,13 +6,13 @@ import {
   Cube,
 } from "../styles/stylesheet";
 
-export const Frame = () => {
+export const Frame = ({ leftBox, rightBox }) => {
   return (
     <FrameWrapper>
       <WrapperCol>
         <WrapperRow>
-          <Cube borderWidth="0"></Cube>
-          <Cube></Cube>
+          <Cube borderWidth="0">{leftBox}</Cube>
+          <Cube>{rightBox}</Cube>
         </WrapperRow>
       </WrapperCol>
     </FrameWrapper>

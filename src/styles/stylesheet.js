@@ -18,6 +18,17 @@ export const WrapperCol = styled(WrapperRow)`
   flex-direction: column;
 `;
 
+/* STYLING FOR BUTTONS */
+
+export const PinButton = styled.button`
+  height: 50px;
+  width: 50px;
+
+  border: none;
+  background: lightgreen;
+  margin: 0 5px;
+`;
+
 /* STYLING FOR FRAMES */
 
 export const FrameWrapper = styled.div`
@@ -31,6 +42,10 @@ export const FrameWrapper = styled.div`
 export const Cube = styled.div`
   height: 50px;
   width: ${(props) => props.width || "50px"};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   background: green;
 

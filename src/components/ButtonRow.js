@@ -1,5 +1,116 @@
-import React from "react";
+import React, { useState } from "react";
+import { WrapperRow } from "../styles/stylesheet";
+import { Button } from "./Button";
 
-export const ButtonRow = () => {
-  return <div></div>;
+export const ButtonRow = ({
+  pinsDown,
+  setPinsDown,
+  currentFrameIndex,
+  setCurrentFrameIndex,
+}) => {
+  const [rollCounter, setRollCounter] = useState(0);
+
+  return (
+    <WrapperRow>
+      <Button
+        buttonValue={0}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Button
+        buttonValue={1}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Button
+        buttonValue={2}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Button
+        buttonValue={3}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Button
+        buttonValue={4}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Button
+        buttonValue={5}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Button
+        buttonValue={6}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Button
+        buttonValue={7}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Button
+        buttonValue={8}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Button
+        buttonValue={9}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Button
+        buttonValue={10}
+        pinsDown={pinsDown}
+        setPinsDown={setPinsDown}
+        currentFrameIndex={currentFrameIndex}
+        setCurrentFrameIndex={setCurrentFrameIndex}
+        rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+    </WrapperRow>
+  );
 };
