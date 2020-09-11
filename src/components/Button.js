@@ -19,20 +19,22 @@ export const Button = ({
       currentFrameIndex < 9
         ? setPinsDown([...pinsDown, "", "x"])
         : setPinsDown([...pinsDown, "x"]);
-      setRollCounter(0);
-      //   setCounter(0);
+
+      rollCounter += 2;
 
       setCurrentFrameIndex(currentFrameIndex + 1);
     } else if (isSpare()) {
       setPinsDown([...pinsDown, "/"]);
-      //   setCounter(0);
-      setRollCounter(0);
+
+      rollCounter++;
+
       setCurrentFrameIndex(currentFrameIndex + 1);
     } else {
       setPinsDown([...pinsDown, buttonValue.toString()]);
-      //   setCounter(1);
-      setRollCounter(rollCounter + 1);
+
+      rollCounter++;
     }
+    rollCounter > 1 ? setRollCounter(0) : setRollCounter(rollCounter);
   };
 
   const isStrike = () => {
@@ -47,12 +49,17 @@ export const Button = ({
 
   return (
     <>
-      {isNaN(+pinsDown[pinsDown.length - 1]) && (
-        <PinButton onClick={() => handleOnClick()}>{buttonValue}</PinButton>
-      )}
-      {buttonValue + +pinsDown[pinsDown.length - 1] <= 10 && (
-        <PinButton onClick={() => handleOnClick()}>{buttonValue}</PinButton>
-      )}
+      {
+        <PinButton
+          onClick={() => handleOnClick()}
+          disabled={
+            rollCounter === 1 &&
+            buttonValue + +pinsDown[pinsDown.length - 1] > 10
+          }
+        >
+          {buttonValue}
+        </PinButton>
+      }
     </>
   );
 };
