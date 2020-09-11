@@ -1,7 +1,12 @@
 export class BowlingGame {
-  roll() {}
+  constructor() {
+    this.currentScore = 0;
+  }
+  roll(pinsDown) {
+    this.currentScore += pinsDown;
+  }
 
   score() {
-    return 0;
+    return this.currentScore;
   }
 }
