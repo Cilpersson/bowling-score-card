@@ -6,7 +6,7 @@ import {
   Cube,
 } from "../styles/stylesheet";
 
-export const Frame = ({ leftBox, rightBox }) => {
+export const Frame = ({ leftBox, rightBox, currentMaxScore }) => {
   return (
     <FrameWrapper>
       <WrapperCol>
@@ -14,6 +14,7 @@ export const Frame = ({ leftBox, rightBox }) => {
           <Cube borderWidth="0">{leftBox}</Cube>
           <Cube>{rightBox}</Cube>
         </WrapperRow>
+        {currentMaxScore}
       </WrapperCol>
     </FrameWrapper>
   );

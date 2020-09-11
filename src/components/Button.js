@@ -2,6 +2,7 @@ import React from "react";
 import { PinButton } from "../styles/stylesheet";
 
 export const Button = ({
+  game,
   buttonValue,
   pinsDown,
   setPinsDown,
@@ -15,6 +16,8 @@ export const Button = ({
   };
 
   const pushToPinArr = () => {
+    game.roll(buttonValue);
+    game.score();
     if (isStrike()) {
       currentFrameIndex < 9
         ? setPinsDown([...pinsDown, "", "x"])
@@ -30,13 +33,27 @@ export const Button = ({
 
       setCurrentFrameIndex(currentFrameIndex + 1);
     } else {
-      setPinsDown([...pinsDown, buttonValue.toString()]);
+      //specialfall för framindex 9
+      if (currentFrameIndex < 10) {
+        setPinsDown([...pinsDown, buttonValue.toString()]);
+      } else if (
+        (currentFrameIndex === 10 && pinsDown[pinsDown.length - 1] === "/") ||
+        pinsDown[pinsDown.length - 1] === "x"
+      ) {
+        setPinsDown([...pinsDown, buttonValue.toString()]);
+      } else {
+        setPinsDown([...pinsDown, ""]);
+      }
 
       rollCounter++;
+      rollCounter > 1
+        ? setCurrentFrameIndex(currentFrameIndex + 1)
+        : setCurrentFrameIndex(currentFrameIndex);
     }
+
     rollCounter > 1 ? setRollCounter(0) : setRollCounter(rollCounter);
   };
-
+  console.log(currentFrameIndex);
   const isStrike = () => {
     return rollCounter === 0 && buttonValue === 10;
   };

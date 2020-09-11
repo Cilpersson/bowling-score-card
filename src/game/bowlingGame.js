@@ -1,6 +1,7 @@
 export class BowlingGame {
   constructor() {
     this.listOfRolls = [];
+    this.listOfScoreByFrame = [];
   }
   roll(pinsDown) {
     this.listOfRolls.push(pinsDown);
@@ -9,6 +10,7 @@ export class BowlingGame {
   score() {
     let score = 0;
     let currentRollIndex = 0;
+    this.listOfScoreByFrame = [];
 
     for (let frameIndex = 0; frameIndex < 10; frameIndex++) {
       const frameScore =
@@ -29,7 +31,10 @@ export class BowlingGame {
         // Adding 2 because the score for the entire frame has been calculated
         currentRollIndex += 2;
       }
+      // If score is not yet calculated it will not get pushed to the score list.
+      if (score) this.listOfScoreByFrame.push(score);
     }
+
     return score;
   }
 

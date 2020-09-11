@@ -3,6 +3,7 @@ import { WrapperRow } from "../styles/stylesheet";
 import { Button } from "./Button";
 
 export const ButtonRow = ({
+  game,
   pinsDown,
   setPinsDown,
   currentFrameIndex,
@@ -12,7 +13,9 @@ export const ButtonRow = ({
 
   return (
     <WrapperRow>
+      {currentFrameIndex}
       <Button
+        game={game}
         buttonValue={0}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
@@ -22,6 +25,7 @@ export const ButtonRow = ({
         setRollCounter={setRollCounter}
       />
       <Button
+        game={game}
         buttonValue={1}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
@@ -31,6 +35,7 @@ export const ButtonRow = ({
         setRollCounter={setRollCounter}
       />
       <Button
+        game={game}
         buttonValue={2}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
@@ -40,6 +45,7 @@ export const ButtonRow = ({
         setRollCounter={setRollCounter}
       />
       <Button
+        game={game}
         buttonValue={3}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
@@ -49,6 +55,7 @@ export const ButtonRow = ({
         setRollCounter={setRollCounter}
       />
       <Button
+        game={game}
         buttonValue={4}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
@@ -58,6 +65,7 @@ export const ButtonRow = ({
         setRollCounter={setRollCounter}
       />
       <Button
+        game={game}
         buttonValue={5}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
@@ -67,6 +75,7 @@ export const ButtonRow = ({
         setRollCounter={setRollCounter}
       />
       <Button
+        game={game}
         buttonValue={6}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
@@ -76,6 +85,7 @@ export const ButtonRow = ({
         setRollCounter={setRollCounter}
       />
       <Button
+        game={game}
         buttonValue={7}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
@@ -85,6 +95,7 @@ export const ButtonRow = ({
         setRollCounter={setRollCounter}
       />
       <Button
+        game={game}
         buttonValue={8}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
@@ -94,6 +105,7 @@ export const ButtonRow = ({
         setRollCounter={setRollCounter}
       />
       <Button
+        game={game}
         buttonValue={9}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
@@ -103,6 +115,7 @@ export const ButtonRow = ({
         setRollCounter={setRollCounter}
       />
       <Button
+        game={game}
         buttonValue={10}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}

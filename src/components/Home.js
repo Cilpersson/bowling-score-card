@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BowlingGame } from "../game/bowlingGame";
 import { ButtonRow } from "./ButtonRow";
 import { ScoreBoard } from "./ScoreBoard";
 import { MainWrapper } from "../styles/stylesheet";
@@ -6,10 +7,13 @@ import { MainWrapper } from "../styles/stylesheet";
 export const Home = () => {
   const [pinsDown, setPinsDown] = useState([]);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
+  const [game] = useState(new BowlingGame());
+
   return (
     <MainWrapper>
-      <ScoreBoard pinsDown={pinsDown} />
+      <ScoreBoard game={game} pinsDown={pinsDown} />
       <ButtonRow
+        game={game}
         pinsDown={pinsDown}
         setPinsDown={setPinsDown}
         currentFrameIndex={currentFrameIndex}
