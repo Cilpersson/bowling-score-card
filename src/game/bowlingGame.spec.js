@@ -40,6 +40,17 @@ describe("A game of 5, 5 (5 + 5 = spare), 3 should result in 16 points", () => {
   });
 });
 
+/* STRIKE */
+describe("A game of 10 (strike), 1, 1 should result in 14 points (12 for strike + 2 for next frame)", () => {
+  it("should return 14 for a game of 10, 1, 1, 0 * 17", () => {
+    game.roll(10);
+    game.roll(1);
+    game.roll(1);
+    rollMany(0, 17);
+    expect(game.score()).toEqual(14);
+  });
+});
+
 const rollMany = (pinsDown, rolls) => {
   for (let i = 0; i < rolls; i++) {
     game.roll(pinsDown);
