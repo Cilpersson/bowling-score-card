@@ -11,7 +11,11 @@ export const Home = () => {
 
   return (
     <MainWrapper>
-      <ScoreBoard game={game} pinsDown={pinsDown} />
+      <ScoreBoard
+        game={game}
+        pinsDown={pinsDown}
+        currentFrameIndex={currentFrameIndex}
+      />
       <ButtonRow
         game={game}
         pinsDown={pinsDown}

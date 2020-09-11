@@ -35,8 +35,10 @@ export const FrameWrapper = styled.div`
   height: 100px;
   width: ${(props) => props.width || "100px"};
   margin: 0 5px;
+  transition: background 0.2s;
 
-  background: salmon;
+  background: ${({ currentFrame }) =>
+    currentFrame ? "lightblue" : "lightgreen"};
 `;
 
 export const Cube = styled.div`
@@ -47,9 +49,7 @@ export const Cube = styled.div`
   justify-content: center;
   align-items: center;
 
-  background: green;
-
   border-width: ${(props) => props.borderWidth || "0 0 1px 1px"};
-  border-color: blue;
+  border-color: white;
   border-style: solid;
 `;

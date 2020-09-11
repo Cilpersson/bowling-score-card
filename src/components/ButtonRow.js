@@ -13,7 +13,6 @@ export const ButtonRow = ({
 
   return (
     <WrapperRow>
-      {currentFrameIndex}
       <Button
         game={game}
         buttonValue={0}
