@@ -24,3 +24,10 @@ This was a challenging project, but it was also a lot of fun and I have learned 
 I have a list, **pinsDown**, that stores the users points from the button clicked, if the user scores a spare or strike a forward dash or an x is added, otherwise a numerical value converted to a string is added. Converting the numbers to strings is to make sure data types are not to mixed in that array. The main issue I had was not calculating the score for different types of rolls which is done in the BowlingGame class, but rather displaying the correct number, sign or empty string for said roll. In the button component that logic is handled. I have tried my absolute best to extract logic from the main function to smaller functions, however there are a lot of specific conditions to take in to account. I'm positive there is a much cleaner solution, unfortunately my solution is the best I could come up with.
 
 Overall however I'm satisfied with what I have done, I've tried my absolute most to give clear names to variables, methods and functions and also keeping the code clean.
+
+**Clone it and:**
+`npm install` => `npm start`
+
+**or view it live:**
+
+[Bowling score calculator](https://bowling-score-calculator.netlify.app/)
