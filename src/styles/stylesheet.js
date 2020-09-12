@@ -4,6 +4,7 @@ import backgroundSVG from "../images/background.svg";
 const lightBlue = "#97E4F9";
 const darkBlue = "#2d7e94";
 const lightGreen = "#B8EA6B";
+const darkGreen = "#2d943a";
 
 /* FONTS */
 export const Title = styled.h1`
@@ -12,7 +13,7 @@ export const Title = styled.h1`
   margin: 10px 0 40px;
   text-align: center;
   text-shadow: 1px 1px ${darkBlue}, -1px -1px ${darkBlue}, -1px 1px ${darkBlue},
-    1px -1px ${darkBlue}, 5px 7px 0px #b8ea6b, 6px 8px #2d943a;
+    1px -1px ${darkBlue}, 5px 7px 0px ${lightGreen}, 6px 8px ${darkGreen};
 
   color: ${lightBlue};
 `;
@@ -20,6 +21,7 @@ export const Title = styled.h1`
 export const PlayerTitle = styled.h2`
   font-weight: 400;
   margin: 20px 5px 5px;
+  color: ${darkBlue};
 `;
 /* WRAPPERS */
 export const MainWrapper = styled.section`
@@ -80,6 +82,10 @@ export const StyledButton = styled.button`
   transition: all 0.4s;
   &:hover {
     background: ${lightBlue};
+  }
+
+  &:disabled {
+    opacity: 0.5;
   }
 `;
 

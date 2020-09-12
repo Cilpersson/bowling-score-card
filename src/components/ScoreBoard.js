@@ -15,6 +15,7 @@ export const ScoreBoard = ({ pinsDown, game, currentFrameIndex }) => {
             currentMaxScore={game.listOfScoreByFrame[index]}
             currentFrameIndex={currentFrameIndex}
             frameNbr={index}
+            key={index}
           />
         );
       })}

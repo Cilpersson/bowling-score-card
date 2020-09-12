@@ -25,6 +25,7 @@ export const ButtonRow = ({
             setCurrentFrameIndex={setCurrentFrameIndex}
             rollCounter={rollCounter}
             setRollCounter={setRollCounter}
+            key={index}
           />
         );
       })}

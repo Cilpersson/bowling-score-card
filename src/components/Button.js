@@ -71,7 +71,9 @@ export const Button = ({
       ? setCurrentFrameIndex(currentFrameIndex + 1)
       : setCurrentFrameIndex(currentFrameIndex);
   };
-
+  console.log(
+    rollCounter === 1 && buttonValue + +pinsDown[pinsDown.length - 1] > 10
+  );
   return (
     <>
       {
