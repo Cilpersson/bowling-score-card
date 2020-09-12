@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BowlingGame } from "../game/bowlingGame";
 import { ButtonRow } from "./ButtonRow";
 import { ScoreBoard } from "./ScoreBoard";
-import { MainWrapper } from "../styles/stylesheet";
+import { Title, MainWrapper, ComponentWrapper } from "../styles/stylesheet";
 
 export const Home = () => {
   const [pinsDown, setPinsDown] = useState([]);
@@ -11,18 +11,21 @@ export const Home = () => {
 
   return (
     <MainWrapper>
-      <ScoreBoard
-        game={game}
-        pinsDown={pinsDown}
-        currentFrameIndex={currentFrameIndex}
-      />
-      <ButtonRow
-        game={game}
-        pinsDown={pinsDown}
-        setPinsDown={setPinsDown}
-        currentFrameIndex={currentFrameIndex}
-        setCurrentFrameIndex={setCurrentFrameIndex}
-      />
+      <ComponentWrapper>
+        <Title>BOWLING SCORE TRACKER</Title>
+        <ScoreBoard
+          game={game}
+          pinsDown={pinsDown}
+          currentFrameIndex={currentFrameIndex}
+        />
+        <ButtonRow
+          game={game}
+          pinsDown={pinsDown}
+          setPinsDown={setPinsDown}
+          currentFrameIndex={currentFrameIndex}
+          setCurrentFrameIndex={setCurrentFrameIndex}
+        />
+      </ComponentWrapper>
     </MainWrapper>
   );
 };

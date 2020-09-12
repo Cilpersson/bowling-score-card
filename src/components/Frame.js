@@ -14,13 +14,19 @@ export const Frame = ({
   frameNbr,
 }) => {
   return (
-    <FrameWrapper currentFrame={currentFrameIndex === frameNbr}>
+    <FrameWrapper>
       <WrapperCol>
         <WrapperRow>
-          <Cube borderWidth="0">{leftBox}</Cube>
-          <Cube>{rightBox}</Cube>
+          <Cube currentFrame={currentFrameIndex === frameNbr} borderWidth="0">
+            {leftBox}
+          </Cube>
+          <Cube currentFrame={currentFrameIndex === frameNbr}>{rightBox}</Cube>
         </WrapperRow>
-        <Cube width="100%" borderWidth="0">
+        <Cube
+          currentFrame={currentFrameIndex === frameNbr}
+          width="100%"
+          borderWidth="0"
+        >
           {currentMaxScore}
         </Cube>
       </WrapperCol>

@@ -37,8 +37,8 @@ export class BowlingGame {
         // Adding 2 because the score for the entire frame has been calculated
         currentRollIndex += 2;
       }
-      // If score is not yet calculated it will not get pushed to the score list.
-      if (score) this.listOfScoreByFrame.push(score);
+      // If score is not a number thus has not yet been calculated it will not get pushed to the score list.
+      if (!isNaN(score)) this.listOfScoreByFrame.push(score);
     }
 
     return score;
