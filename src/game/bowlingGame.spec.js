@@ -51,6 +51,19 @@ describe("A game of 10 (strike), 1, 1 should result in 14 points (12 for strike 
   });
 });
 
+/* RESET GAME */
+describe("All values should be reset to initial values)", () => {
+  it("should reset both constructor arrays to equal empty arrays", () => {
+    game.roll(10);
+    game.roll(1);
+    game.roll(1);
+    game.score();
+    game.reset();
+    expect(game.listOfRolls).toEqual([]);
+    expect(game.listOfScoreByFrame).toEqual([]);
+  });
+});
+
 const rollMany = (pinsDown, rolls) => {
   for (let i = 0; i < rolls; i++) {
     game.roll(pinsDown);

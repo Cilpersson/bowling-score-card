@@ -20,8 +20,8 @@ export const WrapperCol = styled(WrapperRow)`
 
 /* STYLING FOR BUTTONS */
 
-export const PinButton = styled.button`
-  height: 50px;
+export const StyledButton = styled.button`
+  height: ${(props) => props.width || "50px"};
   width: 50px;
 
   border: none;

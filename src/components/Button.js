@@ -1,5 +1,5 @@
 import React from "react";
-import { PinButton } from "../styles/stylesheet";
+import { StyledButton } from "../styles/stylesheet";
 
 export const Button = ({
   game,
@@ -53,7 +53,7 @@ export const Button = ({
 
     rollCounter > 1 ? setRollCounter(0) : setRollCounter(rollCounter);
   };
-  console.log(currentFrameIndex);
+
   const isStrike = () => {
     return rollCounter === 0 && buttonValue === 10;
   };
@@ -67,7 +67,7 @@ export const Button = ({
   return (
     <>
       {
-        <PinButton
+        <StyledButton
           onClick={() => handleOnClick()}
           disabled={
             rollCounter === 1 &&
@@ -75,7 +75,7 @@ export const Button = ({
           }
         >
           {buttonValue}
-        </PinButton>
+        </StyledButton>
       }
     </>
   );
