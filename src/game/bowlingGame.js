@@ -3,6 +3,12 @@ export class BowlingGame {
     this.listOfRolls = [];
     this.listOfScoreByFrame = [];
   }
+
+  reset() {
+    this.listOfRolls = [];
+    this.listOfScoreByFrame = [];
+  }
+
   roll(pinsDown) {
     this.listOfRolls.push(pinsDown);
   }
