@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import { BowlingGame } from "../game/bowlingGame";
-import { ButtonRow } from "./ButtonRow";
-import { ScoreBoard } from "./ScoreBoard";
-import { Title, MainWrapper, ComponentWrapper } from "../styles/stylesheet";
+import { BowlingTracker } from "./BowlingTracker";
+import {
+  Title,
+  MainWrapper,
+  ComponentWrapper,
+  StyledMainButton,
+  WrapperRow,
+} from "../styles/stylesheet";
 
 export const Home = () => {
-  const [pinsDown, setPinsDown] = useState([]);
-  const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
-  const [game] = useState(new BowlingGame());
+  const [totalPlayers, setTotalPlayers] = useState([""]);
 
   return (
     <MainWrapper>
       <ComponentWrapper>
         <Title>BOWLING SCORE TRACKER</Title>
-        <ScoreBoard
-          game={game}
-          pinsDown={pinsDown}
-          currentFrameIndex={currentFrameIndex}
-        />
-        <ButtonRow
-          game={game}
-          pinsDown={pinsDown}
-          setPinsDown={setPinsDown}
-          currentFrameIndex={currentFrameIndex}
-          setCurrentFrameIndex={setCurrentFrameIndex}
-        />
+        <WrapperRow>
+          <StyledMainButton
+            onClick={() => setTotalPlayers([...totalPlayers, ""])}
+          >
+            add player
+          </StyledMainButton>
+        </WrapperRow>
+        {totalPlayers.map((_, index) => {
+          return <BowlingTracker playerNbr={index + 1} key={index} />;
+        })}
       </ComponentWrapper>
     </MainWrapper>
   );

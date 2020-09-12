@@ -60,9 +60,9 @@ export const Button = ({
 
   const bonusRoll = () => {
     return (
-      (currentFrameIndex === 10 && pinsDown[pinsDown.length - 1] === "/") ||
-      (currentFrameIndex === 10 && pinsDown[pinsDown.length - 1] === "x") ||
-      (currentFrameIndex === 10 && pinsDown[pinsDown.length - 2] === "x")
+      (currentFrameIndex >= 10 && pinsDown[pinsDown.length - 1] === "/") ||
+      (currentFrameIndex >= 10 && pinsDown[pinsDown.length - 1] === "x") ||
+      (currentFrameIndex >= 10 && pinsDown[pinsDown.length - 2] === "x")
     );
   };
 

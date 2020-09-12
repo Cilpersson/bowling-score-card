@@ -2,21 +2,28 @@ import styled from "styled-components/macro";
 import backgroundSVG from "../images/background.svg";
 
 const lightBlue = "#97E4F9";
+const darkBlue = "#2d7e94";
 const lightGreen = "#B8EA6B";
 
+/* FONTS */
 export const Title = styled.h1`
   font-weight: 700;
   font-size: 80px;
-  margin: 10px 0;
+  margin: 10px 0 40px;
   text-align: center;
-  text-shadow: 1px 1px #2d7e94, -1px -1px #2d7e94, -1px 1px #2d7e94,
-    1px -1px #2d7e94, 5px 7px 0px #b8ea6b, 6px 8px #2d943a;
+  text-shadow: 1px 1px ${darkBlue}, -1px -1px ${darkBlue}, -1px 1px ${darkBlue},
+    1px -1px ${darkBlue}, 5px 7px 0px #b8ea6b, 6px 8px #2d943a;
 
   color: ${lightBlue};
 `;
 
+export const PlayerTitle = styled.h2`
+  font-weight: 400;
+  margin: 20px 5px 5px;
+`;
+/* WRAPPERS */
 export const MainWrapper = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background-image: url(${backgroundSVG});
 
@@ -25,11 +32,11 @@ export const MainWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 `;
 
 export const ComponentWrapper = styled.section`
-  background: #ffffffbd;
+  width: 1250px;
+  background: #ffffffde;
   padding: 50px;
 `;
 
@@ -37,8 +44,25 @@ export const WrapperRow = styled.section`
   display: flex;
 `;
 
+export const WrapperButtons = styled(WrapperRow)`
+  margin: 10px 0;
+  justify-content: space-between;
+`;
+
 export const WrapperCol = styled(WrapperRow)`
   flex-direction: column;
+`;
+
+export const WrapperInfo = styled(WrapperCol)`
+  margin: 10px 0;
+`;
+
+export const Line = styled.hr`
+  border-width: 2px;
+  border-color: ${lightBlue};
+  margin: 15px 0;
+
+  border-style: solid;
 `;
 
 /* STYLING FOR BUTTONS */
@@ -57,6 +81,11 @@ export const StyledButton = styled.button`
   &:hover {
     background: ${lightBlue};
   }
+`;
+
+export const StyledMainButton = styled(StyledButton)`
+  margin: auto;
+  width: 150px;
 `;
 
 /* STYLING FOR FRAMES */

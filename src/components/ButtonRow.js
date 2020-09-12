@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { WrapperRow } from "../styles/stylesheet";
 import { Button } from "./Button";
 import { Reset } from "./Reset";
 
@@ -13,7 +12,7 @@ export const ButtonRow = ({
   const [rollCounter, setRollCounter] = useState(0);
 
   return (
-    <WrapperRow>
+    <>
       <Button
         game={game}
         buttonValue={0}
@@ -130,6 +129,6 @@ export const ButtonRow = ({
         setCurrentFrameIndex={setCurrentFrameIndex}
         setRollCounter={setRollCounter}
       />
-    </WrapperRow>
+    </>
   );
 };
