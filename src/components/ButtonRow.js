@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { WrapperRow } from "../styles/stylesheet";
 import { Button } from "./Button";
+import { Reset } from "./Reset";
 
 export const ButtonRow = ({
   game,
@@ -121,6 +122,12 @@ export const ButtonRow = ({
         currentFrameIndex={currentFrameIndex}
         setCurrentFrameIndex={setCurrentFrameIndex}
         rollCounter={rollCounter}
+        setRollCounter={setRollCounter}
+      />
+      <Reset
+        game={game}
+        setPinsDown={setPinsDown}
+        setCurrentFrameIndex={setCurrentFrameIndex}
         setRollCounter={setRollCounter}
       />
     </WrapperRow>

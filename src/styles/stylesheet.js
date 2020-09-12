@@ -21,12 +21,19 @@ export const WrapperCol = styled(WrapperRow)`
 /* STYLING FOR BUTTONS */
 
 export const StyledButton = styled.button`
-  height: ${(props) => props.width || "50px"};
-  width: 50px;
+  height: 50px;
+  width: ${(props) => props.width || "50px"};
 
   border: none;
   background: lightgreen;
   margin: 0 5px;
+  transition: all 0.3s ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    background: lightblue;
+  }
 `;
 
 /* STYLING FOR FRAMES */
