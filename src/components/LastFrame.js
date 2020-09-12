@@ -12,18 +12,37 @@ export const LastFrame = ({
   rightBox,
   currentMaxScore,
   currentFrameIndex,
+  frameNbr,
 }) => {
   return (
     <FrameWrapper width="150px" currentFrame={currentFrameIndex > 8}>
       <WrapperCol>
         <WrapperRow>
-          <Cube borderWidth="0" width="calc(100% / 3)">
+          <Cube
+            currentFrame={currentFrameIndex >= frameNbr}
+            borderWidth="0"
+            width="calc(100% / 3)"
+          >
             {leftBox}
           </Cube>
-          <Cube width="calc(100% / 3)">{centerBox}</Cube>
-          <Cube width="calc(100% / 3)">{rightBox}</Cube>
+          <Cube
+            currentFrame={currentFrameIndex >= frameNbr}
+            width="calc(100% / 3)"
+          >
+            {centerBox}
+          </Cube>
+          <Cube
+            currentFrame={currentFrameIndex >= frameNbr}
+            width="calc(100% / 3)"
+          >
+            {rightBox}
+          </Cube>
         </WrapperRow>
-        <Cube width="100%" borderWidth="0">
+        <Cube
+          currentFrame={currentFrameIndex >= frameNbr}
+          width="100%"
+          borderWidth="0"
+        >
           {currentMaxScore}
         </Cube>
       </WrapperCol>
