@@ -12,23 +12,27 @@ import {
   Line,
 } from "../styles/stylesheet";
 
-export const BowlingTracker = ({ playerNbr }) => {
+export const BowlingTracker = ({
+  playerIndex,
+  totalPlayers,
+  setTotalPlayers,
+}) => {
   const [pinsDown, setPinsDown] = useState([]);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
   const [game] = useState(new BowlingGame());
-  const [playerActive, setPlayerActive] = useState(true);
 
+  const handleOnClick = () => {
+    totalPlayers[playerIndex] = false;
+    setTotalPlayers([...totalPlayers]);
+  };
   return (
     <>
-      {playerActive && (
+      {totalPlayers[playerIndex] === true && (
         <>
           <WrapperRow>
             <WrapperInfo>
-              <PlayerTitle>Scorecard for player {playerNbr}:</PlayerTitle>
-              <StyledButton
-                width="100px"
-                onClick={() => setPlayerActive(false)}
-              >
+              <PlayerTitle>Scorecard for player {playerIndex + 1}:</PlayerTitle>
+              <StyledButton width="100px" onClick={() => handleOnClick()}>
                 delete scorecard
               </StyledButton>
             </WrapperInfo>
