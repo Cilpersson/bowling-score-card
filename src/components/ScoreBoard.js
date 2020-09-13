@@ -3,7 +3,7 @@ import { Frame } from "./Frame";
 import { LastFrame } from "./LastFrame";
 import { WrapperRow } from "../styles/stylesheet";
 
-export const ScoreBoard = ({ pinsDown, game, currentFrameIndex }) => {
+export const ScoreBoard = ({ game, pinsDown, currentFrameIndex }) => {
   let frames = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <WrapperRow>

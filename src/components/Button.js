@@ -11,36 +11,26 @@ export const Button = ({
   rollCounter,
   setRollCounter,
 }) => {
-  const handleOnClick = () => {
-    pushToPinArr();
-  };
-
   const pushToPinArr = () => {
     game.roll(buttonValue);
     game.score();
+
     if (isStrike()) {
       currentFrameIndex < 9
         ? setPinsDown([...pinsDown, "", "x"])
         : setPinsDown([...pinsDown, "x"]);
       rollCounter += 2;
-      setCurrentFrameIndex(currentFrameIndex + 1);
     } else if (isSpare()) {
       setPinsDown([...pinsDown, "/"]);
       rollCounter++;
-      setCurrentFrameIndex(currentFrameIndex + 1);
-    } else if (isNotLastFrame()) {
+    } else if (isNotLastFrame() || bonusRoll()) {
       setPinsDown([...pinsDown, buttonValue.toString()]);
       rollCounter++;
-      updateFrameIndex();
-    } else if (bonusRoll()) {
-      setPinsDown([...pinsDown, buttonValue.toString()]);
-      rollCounter++;
-      updateFrameIndex();
     } else {
       setPinsDown([...pinsDown, ""]);
       rollCounter++;
-      updateFrameIndex();
     }
+    updateFrameIndex();
     rollCounter > 1 ? setRollCounter(0) : setRollCounter(rollCounter);
   };
 
@@ -73,18 +63,13 @@ export const Button = ({
   };
 
   return (
-    <>
-      {
-        <StyledButton
-          onClick={() => handleOnClick()}
-          disabled={
-            rollCounter === 1 &&
-            buttonValue + +pinsDown[pinsDown.length - 1] > 10
-          }
-        >
-          {buttonValue}
-        </StyledButton>
+    <StyledButton
+      onClick={() => pushToPinArr()}
+      disabled={
+        rollCounter === 1 && buttonValue + +pinsDown[pinsDown.length - 1] > 10
       }
-    </>
+    >
+      {buttonValue}
+    </StyledButton>
   );
 };

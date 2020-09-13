@@ -18,8 +18,8 @@ export const Modal = ({
   setPlayerName,
 }) => {
   const [newName, setNewName] = useState("");
-  useEffect(() => {
-    /* 
+
+  /* 
      Modyfying the dom like this kind of feels like bad practice, 
      however I really wanted to try to make my own popups.
      I did look up how to toogle the body in the globalStyles conditionally like this:
@@ -32,17 +32,21 @@ export const Modal = ({
      and pass it as props to the BowlingTracker comp. So, I'm aware of the hackyness this is and that I could have used 
      the regular prompt, something like sweet alert. But this was fun to style. 
     */
-    if (displayModal) document.body.style.overflow = "hidden";
+
+  useEffect(() => {
+    if (displayModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
   }, [displayModal]);
 
   const handleNameUpdate = () => {
     setPlayerName(newName);
-    document.body.style.overflow = "visible";
     setDisplayModal(false);
   };
 
   const cancelChange = () => {
-    document.body.style.overflow = "visible";
     setDisplayModal(false);
   };
 

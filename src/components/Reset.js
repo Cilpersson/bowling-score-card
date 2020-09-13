@@ -7,7 +7,7 @@ export const Reset = ({
   setCurrentFrameIndex,
   setRollCounter,
 }) => {
-  const handleOnClick = () => {
+  const resetGame = () => {
     game.reset();
     setPinsDown();
     setRollCounter(0);
@@ -15,7 +15,7 @@ export const Reset = ({
     setPinsDown([]);
   };
   return (
-    <StyledButton onClick={() => handleOnClick()} width="100px">
+    <StyledButton onClick={() => resetGame()} width="100px">
       RESET
     </StyledButton>
   );

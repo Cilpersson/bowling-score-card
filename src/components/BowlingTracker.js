@@ -30,6 +30,7 @@ export const BowlingTracker = ({
   /* VALUES FOR MODAL */
   const [displayModal, setDisplayModal] = useState(false);
   const [yOffset, setYOffset] = useState(0);
+
   useScrollPosition(({ _, currPos }) => {
     setYOffset(Math.abs(currPos.y));
   });
