@@ -28,7 +28,6 @@ export const BowlingTracker = ({
   const [playerName, setPlayerName] = useState(`Player ${playerIndex + 1}`);
 
   /* VALUES FOR MODAL */
-
   const [displayModal, setDisplayModal] = useState(false);
   const [yOffset, setYOffset] = useState(0);
   useScrollPosition(({ _, currPos }) => {
@@ -37,8 +36,12 @@ export const BowlingTracker = ({
 
   const deleteScorcard = () => {
     totalPlayers[playerIndex] = false;
-    setPlayerName(`player ${playerIndex + 1}`);
-    setTotalPlayers([...totalPlayers]);
+    // If all players in the array are set to false, a new array will be created when a new player is added
+    if (totalPlayers.every((player) => !player)) {
+      setTotalPlayers([]);
+    } else {
+      setTotalPlayers([...totalPlayers]);
+    }
   };
 
   const changeName = () => {

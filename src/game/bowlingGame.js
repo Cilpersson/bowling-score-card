@@ -25,22 +25,20 @@ export class BowlingGame {
 
       if (this.isStrike(currentRollIndex)) {
         score += this.pointsForStrike(currentRollIndex);
-        // Adding 1 because of strike and values from the entire frame has not been used
+        // Adding 1 because a strike frame contains one roll
         currentRollIndex++;
       } else if (this.isSpare(frameScore)) {
-        // Spare points are frameScore + next frames first roll
         score += this.pointsForSpare(currentRollIndex);
-        // Adding 2 because the score for the entire frame has been calculated
+        // Adding 2 because a spare frame contains two rolls
         currentRollIndex += 2;
       } else {
         score += frameScore;
-        // Adding 2 because the score for the entire frame has been calculated
+        // Adding 2 because a regular fram contains two rolls
         currentRollIndex += 2;
       }
       // If score is not a number thus has not yet been calculated it will not get pushed to the score list.
       if (!isNaN(score)) this.listOfScoreByFrame.push(score);
     }
-
     return score;
   }
 
