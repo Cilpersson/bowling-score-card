@@ -14,6 +14,7 @@ export const Modal = ({
   yOffset,
   displayModal,
   setDisplayModal,
+  playerName,
   setPlayerName,
 }) => {
   const [newName, setNewName] = useState("");
@@ -21,15 +22,15 @@ export const Modal = ({
     /* 
      Modyfying the dom like this kind of feels like bad practice, 
      however I really wanted to try to make my own popups.
-     I did look after how to toogle the body in the globalStyles conditionally like this:
+     I did look up how to toogle the body in the globalStyles conditionally like this:
 
      body {
       overflow: ${({ displayModal }) => (displayModal ? "hidden" : "visible")};
      }
     
      But, the globalStyles is mounted in the index.js file and I can't declare the displayModal useState there
-     and pass it as props to the BowlingTracker comp. So, I'm aware of the hackyness this is, I have asked my teacher 
-     but have not yet heared back from him. 
+     and pass it as props to the BowlingTracker comp. So, I'm aware of the hackyness this is and that I could have used 
+     the regular prompt, something like sweet alert. But this was fun to style. 
     */
     if (displayModal) document.body.style.overflow = "hidden";
   }, [displayModal]);
@@ -55,7 +56,7 @@ export const Modal = ({
               <Input
                 type="text"
                 value={newName}
-                placeholder="your name"
+                placeholder={playerName}
                 onChange={(event) => {
                   setNewName(event.target.value);
                 }}

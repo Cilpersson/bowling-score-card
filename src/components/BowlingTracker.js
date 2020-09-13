@@ -25,7 +25,7 @@ export const BowlingTracker = ({
   const [game] = useState(new BowlingGame());
 
   /* NAME OF PLAYER  */
-  const [playerName, setPlayerName] = useState(`player ${playerIndex + 1}`);
+  const [playerName, setPlayerName] = useState(`Player ${playerIndex + 1}`);
 
   /* VALUES FOR MODAL */
 
@@ -51,6 +51,7 @@ export const BowlingTracker = ({
         yOffset={yOffset}
         displayModal={displayModal}
         setDisplayModal={setDisplayModal}
+        playerName={playerName}
         setPlayerName={setPlayerName}
       />
       {totalPlayers[playerIndex] === true && (
