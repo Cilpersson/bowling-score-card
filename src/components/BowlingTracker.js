@@ -19,22 +19,34 @@ export const BowlingTracker = ({
 }) => {
   const [pinsDown, setPinsDown] = useState([]);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
+  const [playerName, setPlayerName] = useState(`player ${playerIndex + 1}`);
   const [game] = useState(new BowlingGame());
 
-  const handleOnClick = () => {
+  const deleteScorcard = () => {
     totalPlayers[playerIndex] = false;
+    setPlayerName(`player ${playerIndex + 1}`);
     setTotalPlayers([...totalPlayers]);
   };
+
+  const changeName = () => {
+    setPlayerName(window.prompt("What's your name?", "Enter name here"));
+  };
+
   return (
     <>
       {totalPlayers[playerIndex] === true && (
         <>
           <WrapperRow>
             <WrapperInfo>
-              <PlayerTitle>Scorecard for player {playerIndex + 1}:</PlayerTitle>
-              <StyledButton width="100px" onClick={() => handleOnClick()}>
-                delete scorecard
-              </StyledButton>
+              <PlayerTitle>Scorecard for {playerName}:</PlayerTitle>
+              <WrapperButtons>
+                <StyledButton width="150px" onClick={() => changeName()}>
+                  change player name
+                </StyledButton>
+                <StyledButton width="150px" onClick={() => deleteScorcard()}>
+                  delete scorecard
+                </StyledButton>
+              </WrapperButtons>
             </WrapperInfo>
           </WrapperRow>
           <ScoreBoard

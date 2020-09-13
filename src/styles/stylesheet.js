@@ -57,6 +57,8 @@ export const WrapperCol = styled(WrapperRow)`
 
 export const WrapperInfo = styled(WrapperCol)`
   margin: 10px 0;
+  width: 100%;
+  justify-content: space-between;
 `;
 
 export const Line = styled.hr`
