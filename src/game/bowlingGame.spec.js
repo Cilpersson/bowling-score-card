@@ -1,5 +1,4 @@
 import { BowlingGame } from "./bowlingGame";
-
 // 'RED - GREEN - REFACTOR' seems like the way to go both in the java-video I watched and the
 // javascript-video.
 
@@ -15,7 +14,7 @@ beforeEach(() => {
 
 /* ALL GUTTER BALLS */
 describe("A game of all gutter balls results in 0 points", () => {
-  it("should return 0 for a game of 0 points", () => {
+  it("should return 0 for a game of 0 pins down", () => {
     rollMany(0, 20);
     expect(game.score()).toEqual(0);
   });
@@ -23,7 +22,7 @@ describe("A game of all gutter balls results in 0 points", () => {
 
 /* ALL ROLLS ONE PIN DOWN */
 describe("A game of all one pin down rolls should result in 20 points", () => {
-  it("should return 0 for a game of 0 points", () => {
+  it("should return 20 for a game of 1 pin down 20 times", () => {
     rollMany(1, 20);
     expect(game.score()).toEqual(20);
   });
@@ -48,6 +47,14 @@ describe("A game of 10 (strike), 1, 1 should result in 14 points (12 for strike 
     game.roll(1);
     rollMany(0, 17);
     expect(game.score()).toEqual(14);
+  });
+});
+
+/* PERFECT GAME */
+describe("A perfect game should give a score of 300)", () => {
+  it("should return 300 for twelve strikes in a row", () => {
+    rollMany(10, 12);
+    expect(game.score()).toEqual(300);
   });
 });
 

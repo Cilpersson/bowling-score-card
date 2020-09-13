@@ -143,8 +143,6 @@ export const FullScreen = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition: background 0.5s ease-in-out;
 `;
 
 export const Input = styled.input`
