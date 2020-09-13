@@ -4,8 +4,6 @@
 
 This is a website that calculates bowling scores. The UI is written with react and the actual calculations and tests in pure Javscript, ES6, and can be found in a specific folder. This project was a great experience and challenge that I very much enjoyed. I decided to not make the site responsive, freeing up time for other tasks.
 
-The delete score card is currently a bit hacky, which I'm aware of. If I have time I will make sure to change it.
-
 I used styled-components for the styling, as it is my preferred CSS choice for react.
 
 ![Screenshot of website](./src/images/preview.png)
