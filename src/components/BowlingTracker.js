@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { BowlingGame } from "../game/bowlingGame";
 import { ButtonRow } from "./ButtonRow";
 import { ScoreBoard } from "./ScoreBoard";
-
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import { Modal } from "./Modal";
 import {
   WrapperButtons,
   WrapperRow,
@@ -18,10 +19,21 @@ export const BowlingTracker = ({
   totalPlayers,
   setTotalPlayers,
 }) => {
+  /* VALUES FOR SCORE COUNTING */
   const [pinsDown, setPinsDown] = useState([]);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
-  const [playerName, setPlayerName] = useState(`player ${playerIndex + 1}`);
   const [game] = useState(new BowlingGame());
+
+  /* NAME OF PLAYER  */
+  const [playerName, setPlayerName] = useState(`player ${playerIndex + 1}`);
+
+  /* VALUES FOR MODAL */
+
+  const [displayModal, setDisplayModal] = useState(false);
+  const [yOffset, setYOffset] = useState(0);
+  useScrollPosition(({ _, currPos }) => {
+    setYOffset(Math.abs(currPos.y));
+  });
 
   const deleteScorcard = () => {
     totalPlayers[playerIndex] = false;
@@ -30,11 +42,17 @@ export const BowlingTracker = ({
   };
 
   const changeName = () => {
-    setPlayerName(window.prompt("What's your name?", "Enter name here"));
+    setDisplayModal(true);
   };
 
   return (
     <>
+      <Modal
+        yOffset={yOffset}
+        displayModal={displayModal}
+        setDisplayModal={setDisplayModal}
+        setPlayerName={setPlayerName}
+      />
       {totalPlayers[playerIndex] === true && (
         <>
           <WrapperRow>

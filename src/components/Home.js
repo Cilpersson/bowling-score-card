@@ -13,7 +13,6 @@ export const Home = () => {
 
   const handleOnClick = () => {
     let newTotalPlayers = [...totalPlayers, true];
-
     // If all players in the array are set to false,
     // a new array will be created when a new player is added
     if (totalPlayers.every((player) => !player)) newTotalPlayers = [true];
@@ -21,25 +20,27 @@ export const Home = () => {
   };
 
   return (
-    <MainWrapper>
-      <ComponentWrapper>
-        <Title>BOWLING SCORE TRACKER</Title>
-        <WrapperRow>
-          <StyledMainButton onClick={() => handleOnClick()}>
-            add player
-          </StyledMainButton>
-        </WrapperRow>
-        {totalPlayers.map((_, index) => {
-          return (
-            <BowlingTracker
-              playerIndex={index}
-              totalPlayers={totalPlayers}
-              setTotalPlayers={setTotalPlayers}
-              key={index}
-            />
-          );
-        })}
-      </ComponentWrapper>
-    </MainWrapper>
+    <>
+      <MainWrapper>
+        <ComponentWrapper>
+          <Title>BOWLING SCORE TRACKER</Title>
+          <WrapperRow>
+            <StyledMainButton onClick={() => handleOnClick()}>
+              add player
+            </StyledMainButton>
+          </WrapperRow>
+          {totalPlayers.map((_, index) => {
+            return (
+              <BowlingTracker
+                playerIndex={index}
+                totalPlayers={totalPlayers}
+                setTotalPlayers={setTotalPlayers}
+                key={index}
+              />
+            );
+          })}
+        </ComponentWrapper>
+      </MainWrapper>
+    </>
   );
 };

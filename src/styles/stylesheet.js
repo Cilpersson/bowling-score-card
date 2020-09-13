@@ -23,7 +23,7 @@ export const Title = styled.h1`
 export const PlayerTitle = styled.h2`
   font-weight: 400;
   margin: 20px 5px 5px;
-  color: ${darkBlue};
+  color: ${(props) => props.color || darkBlue};
 `;
 /* WRAPPERS */
 export const MainWrapper = styled.section`
@@ -79,7 +79,7 @@ export const StyledButton = styled.button`
 
   border: none;
   background: ${lightGreen};
-  margin: 0 5px;
+  margin: ${(props) => props.margin || "0 5px"};
 
   cursor: pointer;
 
@@ -127,4 +127,42 @@ export const Cube = styled.div`
   border-width: ${(props) => props.borderWidth || "0 0 1px 1px"};
   border-color: #ffffff;
   border-style: solid;
+`;
+
+/* STYLING FOR POPUP WINDOW */
+
+export const FullScreen = styled.section`
+  background: #0000002b;
+  position: absolute;
+  top: ${(props) => props.top}px;
+  z-index: 10;
+  height: 100vh;
+  width: ${(props) => props.width}px;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background 0.5s ease-in-out;
+`;
+
+export const Input = styled.input`
+  border: none;
+  background: ${lightBlue};
+  height: 40px;
+  padding: 15px;
+  width: 100%;
+`;
+
+export const PopUpWindow = styled.div`
+  height: 300px;
+  width: 500px;
+
+  background: white;
+  background: #818181;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
