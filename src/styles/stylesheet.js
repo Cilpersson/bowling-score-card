@@ -5,6 +5,8 @@ const lightBlue = "#97E4F9";
 const darkBlue = "#2d7e94";
 const lightGreen = "#B8EA6B";
 const darkGreen = "#2d943a";
+const red = "#ea6b6b";
+const orange = "#eab96b";
 
 /* FONTS */
 export const Title = styled.h1`
@@ -88,6 +90,14 @@ export const StyledButton = styled.button`
 
   &:disabled {
     opacity: 0.5;
+  }
+`;
+
+export const StyledDeleteButton = styled(StyledButton)`
+  background: ${orange};
+  &:hover {
+    background: ${red};
+    color: #fff;
   }
 `;
 

@@ -9,6 +9,7 @@ import {
   WrapperInfo,
   PlayerTitle,
   StyledButton,
+  StyledDeleteButton,
   Line,
 } from "../styles/stylesheet";
 
@@ -43,9 +44,12 @@ export const BowlingTracker = ({
                 <StyledButton width="150px" onClick={() => changeName()}>
                   change player name
                 </StyledButton>
-                <StyledButton width="150px" onClick={() => deleteScorcard()}>
+                <StyledDeleteButton
+                  width="150px"
+                  onClick={() => deleteScorcard()}
+                >
                   delete scorecard
-                </StyledButton>
+                </StyledDeleteButton>
               </WrapperButtons>
             </WrapperInfo>
           </WrapperRow>
