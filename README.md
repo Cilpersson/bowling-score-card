@@ -32,7 +32,7 @@ I have an array, **pinsDown**, that stores the users points from the button clic
 
 The main issue I had was not calculating the score for different types of rolls which is done in the BowlingGame class, but rather displaying the correct number, sign or empty string for said roll. In the button component that logic is handled. I have tried my absolute best to extract logic from the main function to smaller functions, and dito to refactor the code. However there are quite a few specific conditions to take in to account and therefore I ended up with a couple of `if else`-statements.
 
-Overall I'm pretty satisfied with what I have done, I've tried my to give clear names to variables, methods and functions and also keeping the code clean. I would like to learn how to test the actual components in react and I will definitely continue to dive into TDD as the benefits seem huge.
+Overall I'm pretty satisfied with what I have done, I've tried my best to give clear names to variables, methods and functions and also keeping the code clean. I would like to learn how to test the actual components in react and I will definitely continue to dive into TDD as the benefits seem huge.
 
 If you have read all this, I will finish by saying thank you ✌️
 
