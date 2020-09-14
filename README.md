@@ -20,6 +20,7 @@ I used the `npx create-react-app` commando to set everything up and did my regul
 - [How bowling score works](https://www.youtube.com/watch?v=aBe71sD8o8c)
 - [Bowling score calculator - java](https://www.youtube.com/watch?v=OPGTPQ4kURU&ab_channel=TheCodeDojo)
 - [Bowling score calculator - javascript](https://www.youtube.com/watch?v=brahHchaegc)
+- [Repo from the course I attended this spring whith test challenges](https://github.com/Technigo/unit-tests)
 - [Difference between specs and tests](https://stackoverflow.com/questions/16802030/whats-the-difference-between-tests-and-specs)
 - [This is a pattern generator that I used for the background 🎳](https://www.flaticon.com/pattern/)
 

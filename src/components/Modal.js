@@ -20,18 +20,18 @@ export const Modal = ({
   const [newName, setNewName] = useState("");
 
   /* 
-     Modyfying the dom like this kind of feels like bad practice, 
-     however I really wanted to try to make my own popups.
+     My initial thougt was that modyfying the dom like this felt a little bit hacky and like bad practice, 
+     but then I found this hook doing the pretty much the same thing https://usehooks.com/useLockBodyScroll/
+     making me rather uncertain of if it's right or wrong. Would love some input on this. 
+     
      I did look up how to toogle the body in the globalStyles conditionally like this:
-
      body {
       overflow: ${({ displayModal }) => (displayModal ? "hidden" : "visible")};
      }
-    
      But, the globalStyles is mounted in the index.js file and I can't declare the displayModal useState there
-     and pass it as props to the BowlingTracker comp. So, I'm aware of the hackyness this is and that I could have used 
-     the regular prompt, something like sweet alert. But this was fun to style. 
-    */
+     and pass it as props to the BowlingTracker comp. So, I'm aware of the potential hackyness that this is and that
+     I could have used the regular prompt or something like sweet alert. But I wanted to try this out and it was fun to style. 
+  */
 
   useEffect(() => {
     if (displayModal) {

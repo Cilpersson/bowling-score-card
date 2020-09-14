@@ -33,10 +33,11 @@ export class BowlingGame {
         currentRollIndex += 2;
       } else {
         score += frameScore;
-        // Adding 2 because a regular fram contains two rolls
+        // Adding 2 because a regular frame contains two rolls
         currentRollIndex += 2;
       }
       // If score is not a number thus has not yet been calculated it will not get pushed to the score list.
+      // I'm using !isNaN because if(score) will not push if score === 0, since 0 is falsy in javascript.
       if (!isNaN(score)) this.listOfScoreByFrame.push(score);
     }
     return score;
@@ -47,7 +48,7 @@ export class BowlingGame {
   }
 
   pointsForStrike(currentRollIndex) {
-    // The total points for a strike is 10 plus the value of the two next rolled balls.
+    // The total points for a strike is 10 plus the value of the two next rolls.
     return (
       10 +
       this.listOfRolls[currentRollIndex + 1] +
@@ -60,7 +61,7 @@ export class BowlingGame {
   }
 
   pointsForSpare(currentRollIndex) {
-    // The total points for a spare is 10 plus the value of the next rolled ball.
+    // The total points for a spare is 10 plus the value of the next roll.
     return 10 + this.listOfRolls[currentRollIndex + 2];
   }
 }

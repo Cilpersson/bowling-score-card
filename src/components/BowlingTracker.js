@@ -31,6 +31,8 @@ export const BowlingTracker = ({
   const [displayModal, setDisplayModal] = useState(false);
   const [yOffset, setYOffset] = useState(0);
 
+  // Hook I have previously to get offset from top of the page
+  // I use this for the modal component.
   useScrollPosition(({ _, currPos }) => {
     setYOffset(Math.abs(currPos.y));
   });
