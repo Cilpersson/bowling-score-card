@@ -60,7 +60,8 @@ export const BowlingTracker = ({
         playerName={playerName}
         setPlayerName={setPlayerName}
       />
-      {totalPlayers[playerIndex] === true && (
+
+      {totalPlayers[playerIndex] && (
         <>
           <WrapperRow>
             <WrapperInfo>

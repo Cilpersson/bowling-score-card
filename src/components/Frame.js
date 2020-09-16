@@ -13,20 +13,20 @@ export const Frame = ({
   currentFrameIndex,
   frameNbr,
 }) => {
+  const isCurrentFrame = () => {
+    return currentFrameIndex === frameNbr;
+  };
+
   return (
     <FrameWrapper>
       <WrapperCol>
         <WrapperRow>
-          <Cube currentFrame={currentFrameIndex === frameNbr} borderWidth="0">
+          <Cube currentFrame={isCurrentFrame()} borderWidth="0">
             {leftBox}
           </Cube>
-          <Cube currentFrame={currentFrameIndex === frameNbr}>{rightBox}</Cube>
+          <Cube currentFrame={isCurrentFrame()}>{rightBox}</Cube>
         </WrapperRow>
-        <Cube
-          currentFrame={currentFrameIndex === frameNbr}
-          width="100%"
-          borderWidth="0"
-        >
+        <Cube currentFrame={isCurrentFrame()} width="100%" borderWidth="0">
           {currentMaxScore}
         </Cube>
       </WrapperCol>

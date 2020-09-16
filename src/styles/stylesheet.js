@@ -25,6 +25,7 @@ export const PlayerTitle = styled.h2`
   margin: 20px 5px 5px;
   color: ${(props) => props.color || darkBlue};
 `;
+
 /* WRAPPERS */
 export const MainWrapper = styled.section`
   min-height: 100vh;

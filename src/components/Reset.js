@@ -9,7 +9,8 @@ export const Reset = ({
 }) => {
   const resetGame = () => {
     game.reset();
-    setPinsDown();
+    // This shouldn't be here.
+    // setPinsDown();
     setRollCounter(0);
     setCurrentFrameIndex(0);
     setPinsDown([]);

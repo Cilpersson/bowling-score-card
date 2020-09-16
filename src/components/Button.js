@@ -11,14 +11,15 @@ export const Button = ({
   rollCounter,
   setRollCounter,
 }) => {
+  const strike = 10;
+  const spare = 10;
+
   const pushToPinArr = () => {
     game.roll(buttonValue);
     game.score();
 
     if (isStrike()) {
-      currentFrameIndex < 9
-        ? setPinsDown([...pinsDown, "", "x"])
-        : setPinsDown([...pinsDown, "x"]);
+      strikeFormatting();
       rollCounter += 2;
     } else if (isSpare()) {
       setPinsDown([...pinsDown, "/"]);
@@ -26,22 +27,28 @@ export const Button = ({
     } else if (isNotLastFrame() || bonusRoll()) {
       setPinsDown([...pinsDown, buttonValue.toString()]);
       rollCounter++;
-    } else {
-      setPinsDown([...pinsDown, ""]);
-      rollCounter++;
     }
+
     updateFrameIndex();
     rollCounter > 1 ? setRollCounter(0) : setRollCounter(rollCounter);
   };
 
   const isStrike = () => {
-    return rollCounter === 0 && buttonValue === 10;
+    return rollCounter === 0 && buttonValue === strike;
+  };
+
+  const strikeFormatting = () => {
+    currentFrameIndex < 9
+      ? setPinsDown([...pinsDown, "", "x"])
+      : setPinsDown([...pinsDown, "x"]);
   };
 
   const isSpare = () => {
-    return (
-      rollCounter === 1 && +pinsDown[pinsDown.length - 1] + buttonValue === 10
-    );
+    return rollCounter === 1 && totalFrame() === spare;
+  };
+
+  const totalFrame = () => {
+    return +pinsDown[pinsDown.length - 1] + buttonValue;
   };
 
   const isNotLastFrame = () => {
@@ -50,9 +57,23 @@ export const Button = ({
 
   const bonusRoll = () => {
     return (
-      (currentFrameIndex >= 10 && pinsDown[pinsDown.length - 1] === "/") ||
-      (currentFrameIndex >= 10 && pinsDown[pinsDown.length - 1] === "x") ||
-      (currentFrameIndex >= 10 && pinsDown[pinsDown.length - 2] === "x")
+      (currentFrameIndex >= 10 && checkForFinalSpare()) ||
+      (currentFrameIndex >= 10 && checkForFinalStrike(1)) ||
+      (currentFrameIndex >= 10 && checkForFinalStrike(2))
+    );
+  };
+
+  const checkForFinalSpare = () => {
+    return pinsDown[pinsDown.length - 1] === "/";
+  };
+
+  const checkForFinalStrike = (index) => {
+    return pinsDown[pinsDown.length - index] === "x";
+  };
+
+  const isImpossibleRoll = () => {
+    return (
+      rollCounter === 1 && buttonValue + +pinsDown[pinsDown.length - 1] > 10
     );
   };
 
@@ -63,12 +84,7 @@ export const Button = ({
   };
 
   return (
-    <StyledButton
-      onClick={() => pushToPinArr()}
-      disabled={
-        rollCounter === 1 && buttonValue + +pinsDown[pinsDown.length - 1] > 10
-      }
-    >
+    <StyledButton onClick={() => pushToPinArr()} disabled={isImpossibleRoll()}>
       {buttonValue}
     </StyledButton>
   );

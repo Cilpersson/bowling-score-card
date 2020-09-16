@@ -56,7 +56,7 @@ export const Modal = ({
         <FullScreen width={window.innerWidth} top={yOffset}>
           <PopUpWindow>
             <WrapperCol>
-              <PlayerTitle color="white">What's your name? </PlayerTitle>
+              <PlayerTitle color="white">What's your name?</PlayerTitle>
               <Input
                 type="text"
                 value={newName}
